@@ -1,0 +1,29 @@
+﻿@page "{id:int?}/{d:datetime?}"
+@model WebApplication22.Pages.RotasModel
+@{
+    Layout = null;
+}
+@using Microsoft.AspNetCore.Routing;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Rotas</title>
+</head>
+<body>
+    <div>
+        <h1>Rotas</h1>
+        <p>@ViewData["id"]</p>
+        <p>
+            @{ RouteValueDictionary router = ViewData["routes"] as RouteValueDictionary; }
+            {
+            <div>@string.Join(",", router.Keys)</div>
+            <div>@string.Join(",", router.Values)</div>
+            <br />
+            }
+            @ViewData["date"]
+        </p>
+    </div>
+</body>
+</html>

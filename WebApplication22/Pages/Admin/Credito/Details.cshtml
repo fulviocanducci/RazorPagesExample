@@ -1,0 +1,22 @@
+﻿@page "{id:int?}"
+@model WebApplication22.Pages.Admin.Credito.DetailsModel
+@{ Layout = null; }
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div><label>Id:</label></div>
+    <p>@Model.Credit.Id</p>
+    <div><label>Descrição:</label></div>
+    <p>@Model.Credit.Description</p>
+    <div>
+        <a asp-page="Edit" asp-route-id="@Model.Credit.Id">Alterar Registro</a> |
+        <a asp-page="Delete" asp-route-id="@Model.Credit.Id">Excluir</a> |
+        <a asp-page="Index"><< Voltar</a>
+    </div>
+</body>
+</html>

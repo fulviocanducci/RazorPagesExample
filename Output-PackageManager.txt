@@ -1,0 +1,12 @@
+﻿Restoring packages for C:\Users\Developer\Documents\Visual Studio 2017\Projects\WebApplication22\WebApplication22\WebApplication22.csproj...
+Installing NuGet package Microsoft.EntityFrameworkCore.Tools 2.0.1.
+Committing restore...
+Writing lock file to disk. Path: C:\Users\Developer\Documents\Visual Studio 2017\Projects\WebApplication22\WebApplication22\obj\project.assets.json
+Restore completed in 940,25 ms for C:\Users\Developer\Documents\Visual Studio 2017\Projects\WebApplication22\WebApplication22\WebApplication22.csproj.
+Executing nuget actions took 1,8 sec
+Time Elapsed: 00:00:02.8090233
+========== Finished ==========
+
+Time Elapsed: 00:00:00.1387125
+========== Finished ==========
+
