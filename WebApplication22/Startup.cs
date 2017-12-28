@@ -22,8 +22,8 @@ namespace WebApplication22
             services.AddMvc()
                 .AddRazorPagesOptions(options =>
                 {
-                    options.RootDirectory = "/Pages";
-                    options.Conventions.AddPageRoute("/Rotas", "r1/{id:int?}/{d:datetime?}");                    
+                    options.RootDirectory = "/Pages";                                       
+                    options.Conventions.AddPageRoute("/Test", "peoples/{handler?}");
                 });
         }
 
