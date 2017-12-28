@@ -3,22 +3,15 @@
 namespace WebApplication22.Models
 {
     public class Database: DbContext
-    {
-        //configure a sua conection
-        protected const string ConnectionString = "Server=.\\SqlExpress;Database=DatabaseRazorPages;User Id=sa;Password=senha;MultipleActiveResultSets=true;";
+    {        
 
-        public Database()
-        {
-            
+        public Database(DbContextOptions<Database> options)
+            :base(options)
+        {            
         }
 
         public DbSet<Credit> Credit { get; set; }
-        public DbSet<People> People { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(ConnectionString);
-        }
+        public DbSet<People> People { get; set; }        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
