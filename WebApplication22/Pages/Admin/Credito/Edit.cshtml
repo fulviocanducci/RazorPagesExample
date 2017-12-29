@@ -1,13 +1,19 @@
 ﻿@page "{id:int?}"
 @model WebApplication22.Pages.Admin.Credito.EditModel
-
-<form method="post">
-    <label>Descrição:</label>
-    <input type="hidden" asp-for="Credit.Id" />
-    <input type="text" asp-for="Credit.Description" class="form-control" />
-    <br />
-    <div>
-        <input type="submit" value="Alterar" class="btn btn-primary" /> <a asp-page="Index" class="btn btn-danger"><< Voltar</a>
+<h4>Crédito - Modificações</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <label class="control-label">Descrição:</label>
+            <input type="hidden" asp-for="Credit.Id" />
+            <input type="text" asp-for="Credit.Description" class="form-control" />
+            <br />
+            <div>
+                <input type="submit" value="Alterar" class="btn btn-primary" /> | 
+                <a asp-page="Index" class="btn btn-danger"><< Cancelar</a>
+            </div>
+        </form>
     </div>
-</form>
-    
+</div>
+

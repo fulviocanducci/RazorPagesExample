@@ -1,9 +1,10 @@
 ﻿@page
 @model WebApplication22.Pages.Admin.Credito.IndexModel
-
-<div>
+<h4>Crédito</h4>
+<hr />
+<p>
     <a asp-page="Create" class="btn-link">Novo Registro</a>
-</div>
+</p>
 <br />
 <table class="table table-bordered">
     <tr>
@@ -17,7 +18,7 @@
             <td style="width:10%;text-align:center">@item.Id</td>
             <td style="width:65%">@item.Description</td>
             <td style="width:25%;text-align:center">
-                <a asp-page="Edit" asp-route-id="@item.Id">Alterar Registro</a> |
+                <a asp-page="Edit" asp-route-id="@item.Id">Alterar</a> |
                 <a asp-page="Details" asp-route-id="@item.Id">Detalhes</a> |
                 <a asp-page="Delete" asp-route-id="@item.Id">Excluir</a>
             </td>

@@ -1,11 +1,16 @@
 ﻿@page "{id:int?}"
 @model WebApplication22.Pages.Admin.Credito.DeleteModel
-
-<div><label>Id:</label></div>
-<p>@Model.Credit.Id</p>
-<div><label>Descrição:</label></div>
-<p>@Model.Credit.Description</p>
-<form method="post">
-    <input type="hidden" asp-for="Credit.Id" />
-    <button type="submit" class="btn btn-info" onclick="return confirm('Deseja excluir?');">Excluir</button> <a asp-page="Index" class="btn btn-danger"><< Voltar</a>
-</form>    
+<h4>Crédito - Exclusão definitiva?</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div><label>Id:</label></div>
+        <p>@Model.Credit.Id</p>
+        <div><label>Descrição:</label></div>
+        <p>@Model.Credit.Description</p>
+        <form method="post">
+            <input type="hidden" asp-for="Credit.Id" />
+            <button type="submit" class="btn btn-info" onclick="return confirm('Deseja excluir?');">Excluir</button> <a asp-page="Index" class="btn btn-danger"><< Voltar</a>
+        </form>
+    </div>
+</div>

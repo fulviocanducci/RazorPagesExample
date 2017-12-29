@@ -1,11 +1,18 @@
 ﻿@page
 @model WebApplication22.Pages.Admin.Credito.CreateModel
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-<form method="post">
-    <label>Descrição:</label>
-    <input type="text" asp-for="Credit.Description" class="form-control" />
-    <br />
-    <div>
-        <input type="submit" value="Criar" class="btn btn-success" /> <a asp-page="Index" class="btn btn-danger"><< Voltar</a>
+<h4>Crédito - Cadastro</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label class="control-label">Descrição:</label>
+                <input type="text" asp-for="Credit.Description" class="form-control" />
+            </div>
+            <div>
+                <input type="submit" value="Criar" class="btn btn-success" /> |
+                <a asp-page="Index" class="btn btn-danger"><< Voltar</a>
+            </div>
+        </form>
     </div>
-</form>    
+</div>

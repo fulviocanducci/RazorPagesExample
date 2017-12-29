@@ -1,53 +1,39 @@
 ﻿@page
 @model WebApplication22.Pages.Users.IndexModel
+@{ ViewData["Title"] = "Index"; }
+<h4>Usuários</h4>
+<hr />
+<p>
+    <a asp-page="Create">Novo Registro</a>
+</p>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th style="text-align:center">
+            Nome do usuário
+        </th>
+        <th style="text-align:center">
+            E-mail
+        </th>
+        <th style="text-align:center">...</th>
+    </tr>
 
-@{
-    ViewData["Title"] = "Index";
-}
+    @foreach (var item in Model.ApplicationUser)
+    {
+        <tr>
+            <td style="width:40%;text-align:left">
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td style="width:35%;text-align:center">
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
 
-@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-{
+            <td style="width:25%;text-align:center">
+                <a asp-page="./Edit" asp-route-id="@item.Id">Alterar</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Excluir</a>
+            </td>
+        </tr>
+    }
 
-    <h2>Index</h2>
-
-    <p>
-        <a asp-page="Create">Create New</a>
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.ApplicationUser[0].UserName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ApplicationUser[0].Email)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.ApplicationUser)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UserName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-
-                    <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
-                </tr>
-            }
-
-        </tbody>
-    </table>
-}
-else
-{
-    <h2>Não autorizado</h2>
-}
+</table>

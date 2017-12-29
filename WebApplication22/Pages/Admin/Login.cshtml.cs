@@ -53,6 +53,7 @@ namespace WebApplication22.Pages.Admin
             //await UserManager.AddToRoleAsync(a, "Admin");
             //await UserManager.AddToRoleAsync(a, "Default");
             //await UserManager.AddToRoleAsync(b, "Default");
+            await Task.FromResult(0);
         }
 
         [BindProperty()]

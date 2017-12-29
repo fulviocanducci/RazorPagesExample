@@ -1,12 +1,18 @@
 ﻿@page "{id:int?}"
 @model WebApplication22.Pages.Admin.Credito.DetailsModel
-<div><label>Id:</label></div>
-<p>@Model.Credit.Id</p>
-<div><label>Descrição:</label></div>
-<p>@Model.Credit.Description</p>
-<div>
-    <a asp-page="Edit"  class="btn btn-info" asp-route-id="@Model.Credit.Id">Alterar Registro</a> |
-    <a asp-page="Delete"  class="btn btn-warning" asp-route-id="@Model.Credit.Id">Excluir</a> |
-    <a asp-page="Index" class="btn btn-danger"><< Voltar</a>
+<h4>Crédito - Detalhes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div><label>Id:</label></div>
+        <p>@Model.Credit.Id</p>
+        <div><label>Descrição:</label></div>
+        <p>@Model.Credit.Description</p>
+        <div>
+            <a asp-page="Edit" class="btn btn-info" asp-route-id="@Model.Credit.Id">Alterar Registro</a> |
+            <a asp-page="Delete" class="btn btn-warning" asp-route-id="@Model.Credit.Id">Excluir</a> |
+            <a asp-page="Index" class="btn btn-danger"><< Voltar</a>
+        </div>
+    </div>
 </div>
 

@@ -1,11 +1,12 @@
 ﻿@page "{id}"
-@model WebApplication22.Pages.Users.CreateModel
-@{ ViewData["Title"] = "Create"; }
-<h4>Usuários - Cadastro</h4>
+@model WebApplication22.Pages.Users.EditModel
+@{ ViewData["Title"] = "Edit"; }
+<h4>Usuários - Modificações</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
+            <input asp-for="ApplicationUser.Id" type="hidden" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label for="UserName" class="control-label">Usuário/E-mail:</label>
@@ -14,15 +15,15 @@
             </div>
             <div class="form-group">
                 <label for="Password" class="control-label">Senha:</label>
-                <input name="Password" class="form-control" type="password" />
+                <input name="Password" type="password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label for="Password" class="control-label">Tipo de Usuário:</label>
-                @Html.DropDownList("Role")                
+                @Html.DropDownList("Role")
             </div>
             <div class="form-group">
-                <input type="submit" value="Criar" class="btn btn-default" /> |
+                <input type="submit" value="Alterar" class="btn btn-default" /> |
                 <a asp-page="Index" class="btn btn-danger">Cancelar</a>
             </div>
         </form>
@@ -30,9 +31,9 @@
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-<script>
+    <script>
     $(document).ready(function(){
         $("#Role").addClass("form-control");
     });
-</script>
+    </script>
 }

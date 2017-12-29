@@ -63,14 +63,15 @@ namespace WebApplication22
             {
                 options.AddPolicy("AdminPolicy", policy =>
                 {
-                    policy.Requirements.Add(new AdminRequirement());
+                    //policy.Requirements.Add(new AdminRequirement());
+                    policy.RequireAuthenticatedUser();
+                    policy.RequireRole("Admin");
                 });
             });
 
-            services.AddSingleton<IAuthorizationHandler, HasAdminRole>();
+            //services.AddSingleton<IAuthorizationHandler, HasAdminRole>();
                         
         }
-
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
