@@ -10,7 +10,8 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label for="UserName" class="control-label">Usuário/E-mail:</label>
-                <input asp-for="ApplicationUser.UserName" class="form-control" />
+                <input type="text" name="ModelApplicationUserEmail" value="@Model.ApplicationUser.Email" class="form-control" readonly/>
+                <input asp-for="ApplicationUser.UserName" type="hidden" />
                 <span asp-validation-for="ApplicationUser.UserName" class="text-danger"></span>
             </div>
             <div class="form-group">
