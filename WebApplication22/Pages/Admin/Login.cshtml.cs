@@ -4,31 +4,55 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
 using WebApplication22.Models;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+
 namespace WebApplication22.Pages.Admin
 {
     public class LoginModel : PageModel
     {
         private readonly UserManager<ApplicationUser> UserManager;
         private readonly SignInManager<ApplicationUser> SignInManager;
-        
+        private readonly RoleManager<IdentityRole> RoleManager;
 
         public LoginModel(UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager,
+            RoleManager<IdentityRole> roleManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            RoleManager = roleManager;
         }
 
         public async Task OnGetAsync()
         {
-            if (UserManager.Users.Where(x => x.Email == "fulviocanducci@hotmail.com").Any() == false)
-            {
-                await UserManager.CreateAsync(new ApplicationUser
-                {
-                    Email = "fulviocanducci@hotmail.com",
-                    UserName = "fulviocanducci@hotmail.com"
-                }, "A770301bc@");
-            }
+            //if (await RoleManager.RoleExistsAsync("Admim") == false)
+            //{                
+            //    await RoleManager.CreateAsync(new IdentityRole
+            //    {
+            //        Name = "Admin"
+            //    });
+            //}
+            //if (await RoleManager.RoleExistsAsync("Default") == false)
+            //{
+            //    await RoleManager.CreateAsync(new IdentityRole
+            //    {
+            //        Name = "Default"
+            //    });
+            //}
+            //if (UserManager.Users.Where(x => x.Email == "fulviocanducci@hotmail.com").Any() == false)
+            //{
+            //    await UserManager.CreateAsync(new ApplicationUser
+            //    {
+            //        Email = "fulviocanducci@hotmail.com",
+            //        UserName = "fulviocanducci@hotmail.com"
+            //    }, "A770301bc@");                
+            //}
+
+            //var a = await UserManager.FindByNameAsync("fulviocanducci@hotmail.com");
+            //var b = await UserManager.FindByNameAsync("hugopirapo@hotmail.com");
+            //await UserManager.AddToRoleAsync(a, "Admin");
+            //await UserManager.AddToRoleAsync(a, "Default");
+            //await UserManager.AddToRoleAsync(b, "Default");
         }
 
         [BindProperty()]
@@ -57,10 +81,10 @@ namespace WebApplication22.Pages.Admin
             return RedirectToPage("/admin/index");
         }
 
-        public async Task OnGetLogoutAsync()
+        public async Task<IActionResult> OnGetLogoutAsync()
         {         
             await SignInManager.SignOutAsync();
-            RedirectToPage("/admin/login");
+            return RedirectToPage("/admin/login");
         }
     }
 }
