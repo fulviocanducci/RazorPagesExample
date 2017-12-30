@@ -65,10 +65,13 @@ namespace WebApplication22.Pages.Users
                 await UserManager.RemovePasswordAsync(applicationUser);
                 await UserManager.AddPasswordAsync(applicationUser, Password);
             }
-            
-            await UserManager.RemoveFromRolesAsync(applicationUser, await UserManager.GetRolesAsync(ApplicationUser));
-            await UserManager.AddToRoleAsync(applicationUser, (await RoleManager.FindByIdAsync(Role)).Name);
-
+            IList<string> rolesUser = await UserManager.GetRolesAsync(ApplicationUser);
+            string roleName = (await RoleManager.FindByIdAsync(Role)).Name;
+            if (rolesUser[0] != roleName)
+            {
+                await UserManager.RemoveFromRolesAsync(applicationUser, rolesUser);
+                await UserManager.AddToRoleAsync(applicationUser, roleName);
+            }
             return RedirectToPage("./Index");
         }
     }

@@ -1,0 +1,18 @@
+﻿@page "{id}"
+@model WebApplication22.Pages.Users.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+<h4>Usuários - Exclusão definitava?</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <input type="hidden" asp-for="ApplicationUser.Id" />
+            <p><strong>Deseja excluir o usuário: </strong><text>@Model.ApplicationUser.UserName</text>?</p>
+            <button class="btn btn-info" type="submit">Excluir</button> |
+            <a asp-page="Index" class="btn btn-danger">Cancelar</a>
+        </form>
+    </div>
+</div>
+

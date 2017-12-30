@@ -23,37 +23,9 @@ namespace WebApplication22.Pages.Admin
             RoleManager = roleManager;
         }
 
-        public async Task OnGetAsync()
+        public void OnGet()
         {
-            //if (await RoleManager.RoleExistsAsync("Admim") == false)
-            //{                
-            //    await RoleManager.CreateAsync(new IdentityRole
-            //    {
-            //        Name = "Admin"
-            //    });
-            //}
-            //if (await RoleManager.RoleExistsAsync("Default") == false)
-            //{
-            //    await RoleManager.CreateAsync(new IdentityRole
-            //    {
-            //        Name = "Default"
-            //    });
-            //}
-            //if (UserManager.Users.Where(x => x.Email == "fulviocanducci@hotmail.com").Any() == false)
-            //{
-            //    await UserManager.CreateAsync(new ApplicationUser
-            //    {
-            //        Email = "fulviocanducci@hotmail.com",
-            //        UserName = "fulviocanducci@hotmail.com"
-            //    }, "A770301bc@");                
-            //}
-
-            //var a = await UserManager.FindByNameAsync("fulviocanducci@hotmail.com");
-            //var b = await UserManager.FindByNameAsync("hugopirapo@hotmail.com");
-            //await UserManager.AddToRoleAsync(a, "Admin");
-            //await UserManager.AddToRoleAsync(a, "Default");
-            //await UserManager.AddToRoleAsync(b, "Default");
-            await Task.FromResult(0);
+            
         }
 
         [BindProperty()]
