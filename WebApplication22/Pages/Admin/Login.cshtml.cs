@@ -3,9 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
 using WebApplication22.Models;
-using System.Linq;
-using Microsoft.AspNetCore.Authorization;
-
 namespace WebApplication22.Pages.Admin
 {
     public class LoginModel : PageModel
