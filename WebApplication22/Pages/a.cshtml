@@ -7,29 +7,61 @@
 
     public a_Page()
     {
-
+        
     }
 
 
     public string Message { get; private set; } = string.Empty;
 
+    public System.Collections.IEnumerable Items { get; set; }
+
+    [BindProperty()]
+    public IEnumerable<int> Values { get; set; }
+
     public void OnGet()
     {
-        
+        a();
     }
 
     public async Task OnPostAsync()
     {
         Message = await Task.FromResult(DateTime.Now.ToString());
+        //var a = Values;
+        a();
+    }
+
+    public void a()
+    {
+        Items = new[]
+        {
+            new { name ="A", value="1" },
+            new { name ="B", value="2" }
+        }
+        .AsEnumerable();
     }
 }
 
 <h2>a</h2>
 <form method="post">
-    <input asp-route-id="" />
+    <checkboxlist items="@Model.Items" name="Values" description="name" value="value">
+    </checkboxlist>
+    <select></select>
+    <select asp-items="" asp-for=""
     <submit button-label="Presença" button-class-css="btn btn-success"></submit>
 </form>
+<br />
 <text>@Message</text>
+@if (Values != null)
+{
+    foreach (int a in Values)
+    {
+        <text> @a </text>
+    }
+}
+
+
+
+
 
 
 
