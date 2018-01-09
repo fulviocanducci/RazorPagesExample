@@ -6,9 +6,10 @@ using WebApplication22.Models;
 namespace WebApplication22.Pages
 {
     public class TestModel : PageModel
-    {
-        
+    {        
+
         public readonly Database db;
+
         public TestModel(Database db)
         {
             this.db = db;
@@ -30,5 +31,6 @@ namespace WebApplication22.Pages
         {
             Peoples = db.People.Where(x => x.Active == false);
         }
+
     }
 }

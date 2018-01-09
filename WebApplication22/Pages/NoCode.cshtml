@@ -1,0 +1,39 @@
+﻿@page
+@{
+    ViewData["Title"] = "NoCode";
+}
+
+@functions{
+
+    public NoCode_Page()
+    {
+        Message = "";
+    }
+    
+    public string Message { get; private set; }
+
+    public void OnGet()
+    {
+        Message += DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+    }
+
+    [BindProperty]
+    public string Texto { get; set; }
+
+    public void OnPost()
+    {
+        Message = Texto;
+    }
+
+}
+
+<h2>NoCode</h2>
+
+<div>@Message</div>
+
+<form method="post">
+    <input type="text" asp-for="Texto" />
+    <button>Enviar</button>
+</form>
+
+

@@ -1,0 +1,36 @@
+﻿@page
+@{
+    ViewData["Title"] = "a";
+}
+
+@functions{
+
+    public a_Page()
+    {
+
+    }
+
+
+    public string Message { get; private set; } = string.Empty;
+
+    public void OnGet()
+    {
+        
+    }
+
+    public async Task OnPostAsync()
+    {
+        Message = await Task.FromResult(DateTime.Now.ToString());
+    }
+}
+
+<h2>a</h2>
+<form method="post">
+    <input asp-route-id="" />
+    <submit button-label="Presença" button-class-css="btn btn-success"></submit>
+</form>
+<text>@Message</text>
+
+
+
+
